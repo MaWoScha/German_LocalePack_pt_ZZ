@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  German
+ * @package   German_LocalePack
+ * @authors   MaWoScha
+ * @developer MaWoScha
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <German_LocalePackPtZz>
+            <version>0.1.0</version>
+            <locale>pt_ZZ</locale>
+            <title>Portuguese (Custom) Language Pack</title>
+            <link_git>https://github.com/MaWoScha/German_LocalePack_pt_ZZ</link_git>
+            <link></link>
+            <author>Su nombre</author>
+        </German_LocalePackPtZz>
+    </modules>
+
+    <global>
+        <models>
+            <localepackptzz>
+                <class>German_LocalePackPtZz_Model</class>
+            </localepackptzz>
+        </models>
+        <helpers>
+            <localepackptzz>
+                <class>German_LocalePackPtZz_Helper</class>
+            </localepackptzz>
+        </helpers>
+        <blocks>
+            <localepackptzz>
+                <class>German_LocalePackPtZz_Block</class>
+            </localepackptzz>
+        </blocks>
+        <events>
+            <adminhtml_controller_action_predispatch_start>
+                <observers>
+                    <localepackptzz>
+                        <class>localepackptzz/observer</class>
+                        <method>adminhtmlControllerActionPredispatchStart</method>
+                    </localepackptzz>
+                </observers>
+            </adminhtml_controller_action_predispatch_start>
+        </events>
+    </global>
+
+    <default>
+        <localepackptzz>
+             <notification>
+                <url>https://github.com/MaWoScha/German_LocalePack_pt_ZZ</url>
+            </notification>
+        </localepackptzz>
+        <magesetup>
+            <default_country>PT</default_country>
+        </magesetup>
+    </default>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <localepackptzz>
+                    <files>
+                    	<default>localepackpt.xml</default>
+                    </files>
+                </localepackptzz>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <German_LocalePackPtZz>
+                    <files>
+                        <localepackptzz>German_LocalePtZz.csv</localepackptzz>
+                        <default>German_LocalePt.csv</default>
+                    </files>
+                </German_LocalePackPtZz>
+            </modules>
+        </translate>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children> <!--
+                                        <localepacks translate="title" module="localepackptzz">
+                                            <title>Language Packs</title>
+                                    		<children> -->
+                                        		<localepackptzz translate="title" module="localepackptzz">
+                                            		<title>Portuguese (Custom) Language Pack</title>
+                                        		</localepackptzz> <!--
+                                    		</children>
+                                        </localepacks> -->
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+
+</config>
